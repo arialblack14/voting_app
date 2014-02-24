@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+	<div class="modal-header">
+      <%= @article.new_record? ? 'New Article' : "Editind : #{@article.title}" %>
+    </div>
+
+    <% @article.errors.full_messages.each do |error| %>
+    	<li><%= error %></li>
+  	<% end %>
+
+  <%= simple_form_for @article, remote: true, class: 'clearfix' do |f| %>
+    <div class="modal-body">
+      <%= f.input :title %>
+      <%= f.input :body %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

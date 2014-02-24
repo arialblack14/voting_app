@@ -6,6 +6,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-image: url('Abstract-Music.jpg');
 }
 
 section {
@@ -100,4 +101,10 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+}
+
+/* modal */
+
+.modal {
+  color: #0000FF;
 }

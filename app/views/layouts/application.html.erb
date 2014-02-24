@@ -10,8 +10,12 @@
 	<body>
 		<%= render 'layouts/header' %>
 		<div class="container">
-			<%= yield %>
+			<div>
+				<%= yield %>
+				<%= link_to 'New Article', new_article_path, class: 'btn btn-primary btn-lg', remote: true %>
+			</div>
 			<%= render 'layouts/footer' %>
 		</div>
+			
 	</body>
 </html>

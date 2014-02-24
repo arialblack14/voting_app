@@ -3,24 +3,9 @@
 
 	<h3>Here you can vote for the best articles!</h3>
 
-<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+<%= link_to "Sign up now!", '#', class: "btn btn-large btn-success" %>
 </div>
-<% if @articles.empty? %>
-	<span class="text-warning">
-		There are no articles yet!
-	</span>
-<% else %>
-	<div class="panel panel-default">		
-		<div class="panel-heading">Articles</div>
-		<div class="panel-body">
-			<ul class="list-group">
-				<% @articles.each do |article| %>
-					<li class="list-group-item">
-						<%= article.title %>
-						<%= article.body.truncate(15, separator: ' ') %>
-					</li>
-				<% end %>
-			</ul>
-		</div>
-	</div>
-<% end %>
+<div id="article_list">
+	<%= render partial: 'articles/article_list' %>
+</div>
+<div class="modal fade" role="dialog"></div>

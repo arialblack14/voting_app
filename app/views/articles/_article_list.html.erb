@@ -1,0 +1,27 @@
+<% if @articles.empty? %>
+	<span class="text-warning">
+		There are no articles yet!
+	</span>
+<% else %>
+	<div class="panel panel-default">		
+		<div class="panel-heading">
+			Articles
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<% @articles.each do |article| %>
+					<li class="list-group-item">
+						<h2><%= article.title %></h2>
+						<%= link_to article_path(article), method: :delete, remote: true, class: "btn btn-inverse pull-right", data: { confirm: "Are you sure you want to delete this article?" } do %>
+							<span class="glyphicon glyphicon-remove"></span>
+							<% end %>
+							<%= link_to edit_article_path(article), remote: true, class: "btn btn-inverse pull-right" do %>
+							<span class="glyphicon glyphicon-edit"></span>
+						<% end %></br>
+						<%= article.body.truncate(35, separator: ' ') %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>
