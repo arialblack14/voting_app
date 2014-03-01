@@ -10,6 +10,7 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'simple_form'
+gem 'devise'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

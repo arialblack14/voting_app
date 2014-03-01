@@ -6,9 +6,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def create
-		@article = Article.create(article_params)
-		@articles = Article.all
-		render 'hide_form'
+		@article = Article.new(article_params)
+		article_save
 	end
 
 	def destroy
@@ -24,9 +23,8 @@ class ArticlesController < ApplicationController
 
 	def update
 		@article = Article.find(params[:id])
-		@article.update_attributes(article_params)
-		@articles = Article.all
-		render 'hide_form'
+		@article.assign_attributes(article_params)
+		article_save
 	end
 
 	def show
@@ -34,6 +32,15 @@ class ArticlesController < ApplicationController
 	end
 
 	private
+
+	def article_save
+		if @article.save
+			@articles = Article.all
+			render 'hide_form'
+		else
+			render 'show_form'
+		end
+	end
 
 	def article_params
 		params.require(:article).permit(:title, :body)

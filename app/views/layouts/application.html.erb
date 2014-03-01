@@ -9,11 +9,14 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
+		
+		<%= render partial: "shared/flash_messages", flash: flash %>
+
 		<div class="container">
 			<div>
 				<%= yield %>
-				<%= link_to 'New Article', new_article_path, class: 'btn btn-primary btn-lg', remote: true %>
 			</div>
+			<%= link_to "Back", :back, class: "btn btn-default btn-sm pull-right" %></li>
 			<%= render 'layouts/footer' %>
 		</div>
 			

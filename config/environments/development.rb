@@ -26,4 +26,11 @@ VotingApp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  # Necessary for devise to function
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # For mailcatcher to function
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
 end
