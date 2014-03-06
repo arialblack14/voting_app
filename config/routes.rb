@@ -1,8 +1,10 @@
 VotingApp::Application.routes.draw do
-  resources :votes
 
   devise_for :users
-  resources :articles, except: :index
+
+  resources :articles, except: :index do
+    resources :votes
+  end
 
   root 'static_pages#home'
 

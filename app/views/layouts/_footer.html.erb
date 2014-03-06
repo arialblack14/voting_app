@@ -1,3 +1,10 @@
+<% unless user_signed_in? %>
+	<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary btn-lg" %>
+<% end %>
+
+<% if user_signed_in? %>
+	<p class="navbar-text">Signed in as <%= current_user.email %>
+<% end %>
 <footer class="footer">
 	<div class="container">
 		<small>
@@ -7,7 +14,6 @@
 			<ul>
 				<li><%= link_to "About", about_path %></li>
 				<li><%= link_to "Contact", contact_path %></li>
-				<li><%= link_to "Map", '#' %></li>
 			</ul>
 		</nav>
 		<%= link_to image_tag("voted_today.gif", alt: "Voting app"), root_path %>

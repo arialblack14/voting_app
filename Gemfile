@@ -11,6 +11,11 @@ gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'simple_form'
 gem 'devise'
+gem 'cancancan', '~> 1.7'
+gem 'flat-ui-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

@@ -1,34 +1,34 @@
 class ArticlesController < ApplicationController
-	
+	load_and_authorize_resource
+
 	def new
-		@article = Article.new
 		render 'show_form'
 	end
 
 	def create
-		@article = Article.new(article_params)
 		article_save
 	end
 
 	def destroy
-		@article = Article.find(params[:id])
 		@article.destroy
+		
+		respond_to do |format|
+      format.js { render :layout => false }
+    end
+
 		@article = Article.all
 	end
 
 	def edit
-		@article = Article.find(params[:id])
 		render 'show_form'
 	end
 
 	def update
-		@article = Article.find(params[:id])
 		@article.assign_attributes(article_params)
 		article_save
 	end
 
 	def show
-		@article = Article.find(params[:id])
 	end
 
 	private
